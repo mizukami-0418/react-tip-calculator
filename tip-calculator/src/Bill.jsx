@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Bill() {
-  const [bill, setBill] = useState(null);
-
+export default function Bill({ bill, onSetBill }) {
   return (
     <div>
-      <h3>支払いはいくら？</h3>
+      <label>支払いはいくら？</label>
       <input
         type="text"
+        placeholder="支払い額を入力してください"
         value={bill}
-        onChange={(e) => setBill(e.target.value)}
+        onChange={(e) => onSetBill(Number(e.target.value))}
       />
     </div>
   );

@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function SelectPercentage({ title }) {
-  const [percentage, setPercentage] = useState(0);
-
+export default function SelectPercentage({ percentage, onSelect, children }) {
   return (
     <div>
-      <h3>{title}</h3>
+      <label>{children}</label>
       <select
         value={percentage}
-        onChange={(e) => setPercentage(e.target.value)}
+        onChange={(e) => onSelect(Number(e.target.value))}
       >
-        <option value="5">5%</option>
-        <option value="10">10%</option>
-        <option value="15">15%</option>
-        <option value="20">20%</option>
+        <option value="0">うーん☹️ 0%</option>
+        <option value="5">まあまあ😕 5%</option>
+        <option value="10">いいね🙂 10%</option>
+        <option value="20">サイコー😃 20%</option>
       </select>
     </div>
   );
